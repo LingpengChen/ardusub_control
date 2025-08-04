@@ -272,7 +272,7 @@ class ArduSubROSInterfaceAdvanced:
                 self.master.target_component,
                 mavutil.mavlink.MAV_CMD_DO_SET_SERVO,
                 0,
-                7,  # 灯光通道
+                9,  # 灯光通道 (ArduSub lights are on channel 9)
                 pwm_value,
                 0, 0, 0, 0, 0
             )
