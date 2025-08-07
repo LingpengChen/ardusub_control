@@ -1,5 +1,7 @@
 # ArduSub ROS Control System
 
+scp /home/liasorin-clp/workspace/ardusub_control/bag/* clp@192.168.2.3:/media/clp/Data1/our_robot_bag
+
 roslaunch ros1_oak_ffc_sync oak_ffc_sync.launch
 
 /oak_ffc_sync_publisher/imu
@@ -28,7 +30,7 @@ rosbag record \
 
 
 
-
+# RUN
 roscore
 /home/liasorin-clp/workspace/ardusub_control/start_cam.sh
 /home/liasorin-clp/workspace/ardusub_control/start_sonar_and_cam.sh
