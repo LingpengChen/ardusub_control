@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- Multi-Camera Publisher Launch File -->
+    
+    <!-- Node for publishing all 5 cameras -->
+    <node pkg="your_package_name" 
+          type="multi_cam_ros_publisher.py" 
+          name="multi_camera_publisher" 
+          output="screen">
+    </node>
+    
+    <!-- Optional: Launch rviz with camera display -->
+    <node pkg="rviz" 
+          type="rviz" 
+          name="camera_viewer" 
+          args="-d $(find your_package_name)/config/multi_cam.rviz"
+          if="$(arg use_rviz)"
+          output="screen">
+    </node>
+    
+    <!-- Arguments -->
+    <arg name="use_rviz" default="false"/>
+    
+</launch>

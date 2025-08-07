@@ -1,5 +1,43 @@
 # ArduSub ROS Control System
 
+roslaunch ros1_oak_ffc_sync oak_ffc_sync.launch
+
+/oak_ffc_sync_publisher/imu
+/oak_ffc_sync_publisher/CAM_A/image
+/oak_ffc_sync_publisher/CAM_B/image
+/oak_ffc_sync_publisher/CAM_C/image
+/oak_ffc_sync_publisher/CAM_D/image
+/cameras/downward/image_raw
+
+
+
+cd /home/liasorin-clp/workspace/ardusub_control
+
+rosbag record \
+-o bag/1.bag \
+--lz4 \
+/oak_ffc_sync_publisher/imu \
+/oak_ffc_sync_publisher/CAM_A/image/compressed \
+/oak_ffc_sync_publisher/CAM_B/image/compressed \
+/oak_ffc_sync_publisher/CAM_C/image/compressed \
+/oak_ffc_sync_publisher/CAM_D/image/compressed \
+/cameras/downward/image_raw/compressed \
+/oculus/drawn_sonar \
+/oculus/drawn_sonar_osd \
+/oculus/drawn_sonar_rect
+
+
+
+
+roscore
+/home/liasorin-clp/workspace/ardusub_control/start_cam.sh
+/home/liasorin-clp/workspace/ardusub_control/start_sonar_and_cam.sh
+rviz -d rviz/visualizer.rviz 
+
+
+
+rosbag play -l bag/
+
 这是一个基于ROS的ArduSub水下机器人控制系统，提供键盘控制、状态监控UI以及完整的ROS话题接口。
 
 ## 主要特性
